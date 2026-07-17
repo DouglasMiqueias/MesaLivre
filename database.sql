@@ -118,8 +118,8 @@ INSERT INTO produtos (nome, descricao, preco, categoria, estoque, data_cadastro)
 
 -- Mesas de exemplo
 INSERT INTO mesas (numero, capacidade, localizacao, status, descricao) VALUES
-('Mesa 1', 4, 'Área Principal', 'disponível', 'Próximo à janela'),
-('Mesa 2', 4, 'Área Principal', 'disponível', 'Centro do salão'),
-('Mesa 3', 6, 'Área Principal', 'disponível', 'Fundo do salão'),
-('Mesa 4', 2, 'Varanda', 'disponível', 'Varanda externa'),
-('Mesa 5', 8, 'Área VIP', 'disponível', 'Área reservada grupos');
+('1', 4, 'Área Principal', 'disponível', 'Próximo à janela'),
+('2', 4, 'Área Principal', 'disponível', 'Centro do salão'),
+('3', 6, 'Área Principal', 'disponível', 'Fundo do salão'),
+('4', 2, 'Varanda', 'disponível', 'Varanda externa'),
+('5', 8, 'Área VIP', 'disponível', 'Área reservada grupos');
