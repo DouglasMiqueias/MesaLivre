@@ -100,7 +100,9 @@ CREATE TABLE pagamentos (
 
 -- Usuário padrão (senha: test em MD5 = 098f6bcd4621d373cade4e832627b4f6)
 INSERT INTO usuarios (nome, email, senha, tipo) VALUES
-('Administrador', 'iftm@mesalivre.com', '098f6bcd4621d373cade4e832627b4f6', 'admin');
+('Administrador', 'iftm@mesalivre.com', '098f6bcd4621d373cade4e832627b4f6', 'admin'),
+('Admin Principal', 'admin@mesalivre.com', '21232f297a57a5a743894a0e4a801fc3', 'admin');
+
 
 -- Clientes de exemplo
 INSERT INTO clientes (nome, telefone, endereco, bairro, data_cadastro) VALUES
