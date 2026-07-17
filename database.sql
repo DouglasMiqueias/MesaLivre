@@ -100,7 +100,9 @@ CREATE TABLE pagamentos (
 
 -- Usuário padrão (senha: test em MD5 = 098f6bcd4621d373cade4e832627b4f6)
 INSERT INTO usuarios (nome, email, senha, tipo) VALUES
-('Administrador', 'iftm@mesalivre.com', '098f6bcd4621d373cade4e832627b4f6', 'admin');
+('Administrador', 'iftm@mesalivre.com', '098f6bcd4621d373cade4e832627b4f6', 'admin'),
+('Admin Principal', 'admin@mesalivre.com', '21232f297a57a5a743894a0e4a801fc3', 'admin');
+
 
 -- Clientes de exemplo
 INSERT INTO clientes (nome, telefone, endereco, bairro, data_cadastro) VALUES
@@ -118,8 +120,8 @@ INSERT INTO produtos (nome, descricao, preco, categoria, estoque, data_cadastro)
 
 -- Mesas de exemplo
 INSERT INTO mesas (numero, capacidade, localizacao, status, descricao) VALUES
-('Mesa 1', 4, 'Área Principal', 'disponível', 'Próximo à janela'),
-('Mesa 2', 4, 'Área Principal', 'disponível', 'Centro do salão'),
-('Mesa 3', 6, 'Área Principal', 'disponível', 'Fundo do salão'),
-('Mesa 4', 2, 'Varanda', 'disponível', 'Varanda externa'),
-('Mesa 5', 8, 'Área VIP', 'disponível', 'Área reservada grupos');
+('1', 4, 'Área Principal', 'disponível', 'Próximo à janela'),
+('2', 4, 'Área Principal', 'disponível', 'Centro do salão'),
+('3', 6, 'Área Principal', 'disponível', 'Fundo do salão'),
+('4', 2, 'Varanda', 'disponível', 'Varanda externa'),
+('5', 8, 'Área VIP', 'disponível', 'Área reservada grupos');
