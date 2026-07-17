@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS mesalivre;
+USE mesalivre;
+
 -- Tabela de usuários
 CREATE TABLE usuarios (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
@@ -92,3 +95,31 @@ CREATE TABLE pagamentos (
     data_pagamento DATETIME,
     FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido)
 );
+
+-- Dados padrão
+
+-- Usuário padrão (senha: test em MD5 = 098f6bcd4621d373cade4e832627b4f6)
+INSERT INTO usuarios (nome, email, senha, tipo) VALUES
+('Administrador', 'iftm@mesalivre.com', '098f6bcd4621d373cade4e832627b4f6', 'admin');
+
+-- Clientes de exemplo
+INSERT INTO clientes (nome, telefone, endereco, bairro, data_cadastro) VALUES
+('João Silva', '(11) 99999-1111', 'Rua das Flores, 123', 'Centro', NOW()),
+('Maria Santos', '(11) 99999-2222', 'Av. Brasil, 456', 'Jardins', NOW()),
+('Pedro Oliveira', '(11) 99999-3333', 'Rua Nova, 789', 'Vila Nova', NOW());
+
+-- Produtos de exemplo
+INSERT INTO produtos (nome, descricao, preco, categoria, estoque, data_cadastro) VALUES
+('Hambúrguer Clássico', 'Pão, carne, queijo, alface, tomate', 25.00, 'Lanches', 50, NOW()),
+('Refrigerante 350ml', 'Coca-Cola, Guaraná, Fanta', 6.00, 'Bebidas', 100, NOW()),
+('Batata Frita', 'Porção individual', 12.00, 'Acompanhamentos', 80, NOW()),
+('Suco Natural', 'Laranja, Limão ou Maracujá', 8.00, 'Bebidas', 60, NOW()),
+('Sorvete', 'Bola de sorvete (creme, chocolate, morango)', 10.00, 'Sobremesas', 40, NOW());
+
+-- Mesas de exemplo
+INSERT INTO mesas (numero, capacidade, localizacao, status, descricao) VALUES
+('Mesa 1', 4, 'Área Principal', 'disponível', 'Próximo à janela'),
+('Mesa 2', 4, 'Área Principal', 'disponível', 'Centro do salão'),
+('Mesa 3', 6, 'Área Principal', 'disponível', 'Fundo do salão'),
+('Mesa 4', 2, 'Varanda', 'disponível', 'Varanda externa'),
+('Mesa 5', 8, 'Área VIP', 'disponível', 'Área reservada grupos');

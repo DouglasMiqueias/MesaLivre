@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MesaLivre - Sistema de Reservas</title>
+    <link rel="stylesheet" href="../assets/css/exibir.css">
     <style>
         * {
             margin: 0;
