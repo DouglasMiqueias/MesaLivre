@@ -131,6 +131,7 @@
                     echo '<li><a href="cliente.php?fun=listar">👥 Clientes</a></li>';
                     echo '<li><a href="produto.php?fun=listar">📦 Produtos</a></li>';
                     echo '<li><a href="mesa.php?fun=listar">🪑 Mesas</a></li>';
+                    echo '<li><a href="reserva.php?fun=listar">📝 Reservas</a></li>';
                 }
                 ?>
             </ul>
