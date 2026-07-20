@@ -16,8 +16,9 @@
             <label for="localizacao">Localização:</label>
             <select name="localizacao" id="localizacao" required>
                 <option value="">Selecione...</option>
-                <option value="Área Interna">Área Interna</option>
+                <option value="Salão Principal">Salão Principal</option>
                 <option value="Varanda">Varanda</option>
+                <option value="Área VIP">Área VIP</option>
                 <option value="Terraço">Terraço</option>
                 <option value="Jardim">Jardim</option>
             </select>
@@ -26,10 +27,11 @@
         <div class="form-group">
             <label for="status">Status:</label>
             <select name="status" id="status" required>
-                <option value="livre">Livre</option>
+                <option value="disponivel">Disponível</option>
                 <option value="ocupada">Ocupada</option>
                 <option value="reservada">Reservada</option>
-                <option value="manutenção">Manutenção</option>
+                <option value="limpeza">Limpeza</option>
+                <option value="manutencao">Manutenção</option>
             </select>
         </div>
         

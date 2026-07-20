@@ -6,6 +6,7 @@ class Cliente{
     private $telefone;
     private $endereco;
     private $bairro;
+    private $observacoes;
     private $data_cadastro;
 
     public function __construct(){ }
@@ -43,6 +44,13 @@ class Cliente{
     }
     public function setBairro($bairro){
         $this->bairro = $bairro;
+    }
+
+    public function getObservacoes(){
+        return $this->observacoes;
+    }
+    public function setObservacoes($observacoes){
+        $this->observacoes = $observacoes;
     }
 
     public function getDataCadastro(){

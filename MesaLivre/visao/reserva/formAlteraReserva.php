@@ -53,7 +53,7 @@
             <select name="status" id="status" required>
                 <option value="confirmada" <?php echo $r->getStatus() == 'confirmada' ? 'selected' : ''; ?>>Confirmada</option>
                 <option value="cancelada" <?php echo $r->getStatus() == 'cancelada' ? 'selected' : ''; ?>>Cancelada</option>
-                <option value="concluída" <?php echo $r->getStatus() == 'concluída' ? 'selected' : ''; ?>>Concluída</option>
+                <option value="finalizada" <?php echo $r->getStatus() == 'finalizada' ? 'selected' : ''; ?>>Finalizada</option>
             </select>
         </div>
         

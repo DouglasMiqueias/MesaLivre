@@ -9,14 +9,19 @@ class ProdutoDAO {
             $fabrica = new ConnectionFactory();
             $con = $fabrica->getConnection();
             
-            $stmt = $con->prepare("INSERT INTO produtos (nome, descricao, preco, categoria, estoque, data_cadastro) VALUES (:nome, :descricao, :preco, :categoria, :estoque, :data_cadastro)");
+            $stmt = $con->prepare(
+                "INSERT INTO produtos (id_categoria, nome, descricao, preco, estoque, tempo_preparo, imagem, ativo)
+                 VALUES (:id_categoria, :nome, :descricao, :preco, :estoque, :tempo_preparo, :imagem, :ativo)"
+            );
 
+            $stmt->bindValue(':id_categoria', $prod->getIdCategoria());
             $stmt->bindValue(':nome', $prod->getNome());
             $stmt->bindValue(':descricao', $prod->getDescricao());
             $stmt->bindValue(':preco', $prod->getPreco());
-            $stmt->bindValue(':categoria', $prod->getCategoria());
             $stmt->bindValue(':estoque', $prod->getEstoque());
-            $stmt->bindValue(':data_cadastro', $prod->getDataCadastro());
+            $stmt->bindValue(':tempo_preparo', $prod->getTempoPreparo());
+            $stmt->bindValue(':imagem', $prod->getImagem());
+            $stmt->bindValue(':ativo', $prod->getAtivo());
             
             $stmt->execute();
             $fabrica->close();
@@ -30,7 +35,12 @@ class ProdutoDAO {
             $fabrica = new ConnectionFactory();
             $con = $fabrica->getConnection();
             
-            $stmt = $con->prepare("SELECT * FROM produtos");
+            $stmt = $con->prepare(
+                "SELECT p.*, c.nome AS categoria
+                 FROM produtos p
+                 INNER JOIN categorias c ON p.id_categoria = c.id_categoria
+                 ORDER BY p.nome ASC"
+            );
             $stmt->execute();
             
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -38,6 +48,7 @@ class ProdutoDAO {
             return $result;
         } catch (PDOException $ex){
             echo "Erro ao listar produtos: " . $ex->getMessage();
+            return [];
         }
     }
 
@@ -46,14 +57,27 @@ class ProdutoDAO {
             $fabrica = new ConnectionFactory();
             $con = $fabrica->getConnection();
             
-            $stmt = $con->prepare("UPDATE produtos SET nome = :nome, descricao = :descricao, preco = :preco, categoria = :categoria, estoque = :estoque, data_cadastro = :data_cadastro WHERE id_produto = :id_produto");
+            $stmt = $con->prepare(
+                "UPDATE produtos SET
+                    id_categoria   = :id_categoria,
+                    nome           = :nome,
+                    descricao      = :descricao,
+                    preco          = :preco,
+                    estoque        = :estoque,
+                    tempo_preparo  = :tempo_preparo,
+                    imagem         = :imagem,
+                    ativo          = :ativo
+                 WHERE id_produto = :id_produto"
+            );
             
+            $stmt->bindValue(':id_categoria', $prod->getIdCategoria());
             $stmt->bindValue(':nome', $prod->getNome());
             $stmt->bindValue(':descricao', $prod->getDescricao());
             $stmt->bindValue(':preco', $prod->getPreco());
-            $stmt->bindValue(':categoria', $prod->getCategoria());
             $stmt->bindValue(':estoque', $prod->getEstoque());
-            $stmt->bindValue(':data_cadastro', $prod->getDataCadastro());
+            $stmt->bindValue(':tempo_preparo', $prod->getTempoPreparo());
+            $stmt->bindValue(':imagem', $prod->getImagem());
+            $stmt->bindValue(':ativo', $prod->getAtivo());
             $stmt->bindValue(':id_produto', $prod->getIdProduto());
             
             $stmt->execute();
@@ -69,7 +93,6 @@ class ProdutoDAO {
             $con = $fabrica->getConnection();
             
             $stmt = $con->prepare("DELETE FROM produtos WHERE id_produto = :id_produto");
-            
             $stmt->bindValue(':id_produto', $prod->getIdProduto());
             
             $stmt->execute();
@@ -84,25 +107,37 @@ class ProdutoDAO {
             $fabrica = new ConnectionFactory();
             $con = $fabrica->getConnection();
             
-            $stmt = $con->prepare("SELECT * FROM produtos WHERE id_produto = :id");
+            $stmt = $con->prepare(
+                "SELECT p.*, c.nome AS categoria_nome
+                 FROM produtos p
+                 INNER JOIN categorias c ON p.id_categoria = c.id_categoria
+                 WHERE p.id_produto = :id"
+            );
             $stmt->bindValue(':id', $id);
             $stmt->execute();
             
             $dado = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $fabrica->close();
             
+            if(count($dado) == 0) return null;
+
             $p = new Produto();
             $p->setIdProduto($dado[0]["id_produto"]);
+            $p->setIdCategoria($dado[0]["id_categoria"]);
             $p->setNome($dado[0]["nome"]);
             $p->setDescricao($dado[0]["descricao"]);
             $p->setPreco($dado[0]["preco"]);
-            $p->setCategoria($dado[0]["categoria"]);
             $p->setEstoque($dado[0]["estoque"]);
+            $p->setTempoPreparo($dado[0]["tempo_preparo"]);
+            $p->setImagem($dado[0]["imagem"]);
+            $p->setAtivo($dado[0]["ativo"]);
             $p->setDataCadastro($dado[0]["data_cadastro"]);
+            $p->setCategoriaNome($dado[0]["categoria_nome"]);
             
             return $p;
         } catch (PDOException $ex) {
             echo "Erro ao exibir produto: " . $ex->getMessage();
+            return null;
         }
     }
 }

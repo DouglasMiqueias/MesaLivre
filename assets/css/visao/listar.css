@@ -90,7 +90,8 @@ h2 {
     font-size: 12px;
     font-weight: bold;
 }
-.status-livre {
+.status-livre,
+.status-disponivel {
     background-color: #d4edda;
     color: #155724;
 }
@@ -101,6 +102,10 @@ h2 {
 .status-reservada {
     background-color: #fff3cd;
     color: #856404;
+}
+.status-limpeza {
+    background-color: #d1ecf1;
+    color: #0c5460;
 }
 .status-manutencao {
     background-color: #e2e3e5;

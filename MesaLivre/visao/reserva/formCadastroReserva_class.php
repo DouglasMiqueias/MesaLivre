@@ -51,7 +51,7 @@
             <select name="status" id="status" required>
                 <option value="confirmada">Confirmada</option>
                 <option value="cancelada">Cancelada</option>
-                <option value="concluída">Concluída</option>
+                <option value="finalizada">Finalizada</option>
             </select>
         </div>
         

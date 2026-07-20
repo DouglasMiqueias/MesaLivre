@@ -11,6 +11,7 @@ class AlterarCliente{
             $c->setTelefone($_POST["telefone"]);
             $c->setEndereco($_POST["endereco"]);
             $c->setBairro($_POST["bairro"]);
+            $c->setObservacoes($_POST["observacoes"]);
             $c->setDataCadastro($_POST["data_cadastro"]);
 
             $dao = new ClienteDAO();

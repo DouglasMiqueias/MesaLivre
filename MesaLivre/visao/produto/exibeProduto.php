@@ -23,12 +23,27 @@
     
     <div class="detail-item">
         <span class="detail-label">Categoria:</span>
-        <span class="detail-value"><?php echo $p->getCategoria(); ?></span>
+        <span class="detail-value"><?php echo $p->getCategoriaNome(); ?></span>
     </div>
     
     <div class="detail-item">
         <span class="detail-label">Estoque:</span>
         <span class="detail-value"><?php echo $p->getEstoque(); ?> unidades</span>
+    </div>
+
+    <div class="detail-item">
+        <span class="detail-label">Tempo de Preparo:</span>
+        <span class="detail-value"><?php echo $p->getTempoPreparo() !== null ? $p->getTempoPreparo() . ' min' : '—'; ?></span>
+    </div>
+
+    <div class="detail-item">
+        <span class="detail-label">Imagem:</span>
+        <span class="detail-value"><?php echo $p->getImagem() ?: '—'; ?></span>
+    </div>
+
+    <div class="detail-item">
+        <span class="detail-label">Status:</span>
+        <span class="detail-value"><?php echo $p->getAtivo() ? 'Ativo ✔' : 'Inativo ✗'; ?></span>
     </div>
     
     <div class="detail-item">
