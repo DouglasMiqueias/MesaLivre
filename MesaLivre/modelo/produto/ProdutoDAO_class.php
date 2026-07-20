@@ -140,5 +140,64 @@ class ProdutoDAO {
             return null;
         }
     }
+    /**
+     * Busca um produto pelo ID e retorna um objeto Produto (com JOIN de categoria).
+     * Alias semântico de exibir() para uso direto em controllers.
+     */
+    public function buscarPorId($id) {
+        return $this->exibir($id);
+    }
+
+    /**
+     * Busca produtos cujo nome contenha o termo informado (LIKE %termo%).
+     * Retorna um array associativo pronto para renderização em lista.
+     */
+    public function buscarPorNome($nome) {
+        try {
+            $fabrica = new ConnectionFactory();
+            $con = $fabrica->getConnection();
+
+            $stmt = $con->prepare(
+                "SELECT p.*, c.nome AS categoria
+                 FROM produtos p
+                 INNER JOIN categorias c ON p.id_categoria = c.id_categoria
+                 WHERE p.nome LIKE :nome
+                 ORDER BY p.nome ASC"
+            );
+            $stmt->bindValue(':nome', '%' . $nome . '%');
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $fabrica->close();
+            return $result;
+        } catch (PDOException $ex) {
+            echo "Erro ao buscar produto por nome: " . $ex->getMessage();
+            return [];
+        }
+    }
+
+    /**
+     * Alterna (toggle) o campo ativo de um produto.
+     * Passa 1 para ativar, 0 para desativar.
+     */
+    public function alterarDisponibilidade($id_produto, $ativo) {
+        try {
+            $fabrica = new ConnectionFactory();
+            $con = $fabrica->getConnection();
+
+            $stmt = $con->prepare(
+                "UPDATE produtos SET ativo = :ativo WHERE id_produto = :id_produto"
+            );
+            $stmt->bindValue(':ativo', (int)$ativo, PDO::PARAM_INT);
+            $stmt->bindValue(':id_produto', (int)$id_produto, PDO::PARAM_INT);
+
+            $stmt->execute();
+            $fabrica->close();
+            return true;
+        } catch (PDOException $ex) {
+            echo "Erro ao alterar disponibilidade: " . $ex->getMessage();
+            return false;
+        }
+    }
 }
 ?>
