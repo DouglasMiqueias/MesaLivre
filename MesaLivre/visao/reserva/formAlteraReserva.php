@@ -30,7 +30,7 @@
         
         <div class="form-group">
             <label for="data_reserva">Data:</label>
-            <input type="date" name="data_reserva" id="data_reserva" value="<?php echo $r->getData(); ?>" required>
+            <input type="date" name="data_reserva" id="data_reserva" value="<?php echo $r->getDataReserva(); ?>" required>
         </div>
         
         <div class="form-group">
