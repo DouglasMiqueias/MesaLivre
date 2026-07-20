@@ -1,4 +1,5 @@
 <?php
+if(!class_exists('ConnectionFactory')){
 	class ConnectionFactory{
 		public $con = null;
 		public $dbType = "mysql";
@@ -37,5 +38,6 @@
 			}
 		}
 	}
+}
 	
 ?>
