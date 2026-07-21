@@ -31,6 +31,10 @@ include_once("visao/topo.php");
             include_once("controle/reserva/ExibirReserva_class.php");
             $pag = new ExibirReserva();
 
+        } elseif($fun == "consultar") {
+            include_once("controle/reserva/ConsultarReserva_class.php");
+            $pag = new ConsultarReserva();
+
         } else {
             include_once("controle/reserva/ListarReserva_class.php");
             $pag = new ListarReserva();

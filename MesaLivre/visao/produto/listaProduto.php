@@ -7,6 +7,7 @@
 ?>
 
 <a href="produto.php?fun=cadastrar" class="btn btn-add">+ Cadastrar Novo Produto</a>
+<a href="produto.php?fun=consultar" class="btn btn-add">Consultar</a>
 
 <table>
     <tr>

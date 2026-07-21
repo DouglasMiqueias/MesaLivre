@@ -7,6 +7,7 @@
 ?>
 
 <a href="mesa.php?fun=cadastrar" class="btn btn-add">+ Cadastrar Nova Mesa</a>
+<a href="mesa.php?fun=consultar" class="btn btn-add">Consultar</a>
 
 <table>
     <tr>

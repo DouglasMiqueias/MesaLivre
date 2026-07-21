@@ -105,5 +105,23 @@ class ClienteDAO {
             echo "Erro ao exibir cliente: " . $ex->getMessage();
         }
     }
+
+    public function buscarPorNome($nome){
+        try{
+            $fabrica = new ConnectionFactory();
+            $con = $fabrica->getConnection();
+            
+            $stmt = $con->prepare("SELECT * FROM clientes WHERE nome LIKE :nome");
+            $stmt->bindValue(':nome', '%' . $nome . '%');
+            $stmt->execute();
+            
+            $dado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $fabrica->close();
+            
+            return $dado;
+        } catch (PDOException $ex) {
+            echo "Erro ao buscar cliente por nome: " . $ex->getMessage();
+        }
+    }
 }
 ?>

@@ -7,6 +7,7 @@
 ?>
 
 <a href="reserva.php?fun=cadastrar" class="btn btn-add">+ Cadastrar Nova Reserva</a>
+<a href="reserva.php?fun=consultar" class="btn btn-add">Consultar</a>
 
 <table>
     <tr>
