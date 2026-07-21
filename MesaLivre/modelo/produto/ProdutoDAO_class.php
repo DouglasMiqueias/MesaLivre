@@ -8,7 +8,18 @@ class ProdutoDAO {
         try{
             $fabrica = new ConnectionFactory();
             $con = $fabrica->getConnection();
-            
+
+            // Verificar se categoria existe e está ativa
+            $stmtCheck = $con->prepare("SELECT id_categoria FROM categorias WHERE id_categoria = :id_categoria AND ativo = 1");
+            $stmtCheck->bindValue(':id_categoria', $prod->getIdCategoria());
+            $stmtCheck->execute();
+
+            if($stmtCheck->rowCount() == 0){
+                echo "Erro: A categoria selecionada não existe ou não está ativa.";
+                $fabrica->close();
+                return;
+            }
+
             $stmt = $con->prepare(
                 "INSERT INTO produtos (id_categoria, nome, descricao, preco, estoque, tempo_preparo, imagem, ativo)
                  VALUES (:id_categoria, :nome, :descricao, :preco, :estoque, :tempo_preparo, :imagem, :ativo)"
@@ -22,7 +33,7 @@ class ProdutoDAO {
             $stmt->bindValue(':tempo_preparo', $prod->getTempoPreparo());
             $stmt->bindValue(':imagem', $prod->getImagem());
             $stmt->bindValue(':ativo', $prod->getAtivo());
-            
+
             $stmt->execute();
             $fabrica->close();
         } catch (PDOException $ex){
@@ -56,7 +67,18 @@ class ProdutoDAO {
         try {
             $fabrica = new ConnectionFactory();
             $con = $fabrica->getConnection();
-            
+
+            // Verificar se categoria existe e está ativa
+            $stmtCheck = $con->prepare("SELECT id_categoria FROM categorias WHERE id_categoria = :id_categoria AND ativo = 1");
+            $stmtCheck->bindValue(':id_categoria', $prod->getIdCategoria());
+            $stmtCheck->execute();
+
+            if($stmtCheck->rowCount() == 0){
+                echo "Erro: A categoria selecionada não existe ou não está ativa.";
+                $fabrica->close();
+                return;
+            }
+
             $stmt = $con->prepare(
                 "UPDATE produtos SET
                     id_categoria   = :id_categoria,
@@ -69,7 +91,7 @@ class ProdutoDAO {
                     ativo          = :ativo
                  WHERE id_produto = :id_produto"
             );
-            
+
             $stmt->bindValue(':id_categoria', $prod->getIdCategoria());
             $stmt->bindValue(':nome', $prod->getNome());
             $stmt->bindValue(':descricao', $prod->getDescricao());
@@ -79,7 +101,7 @@ class ProdutoDAO {
             $stmt->bindValue(':imagem', $prod->getImagem());
             $stmt->bindValue(':ativo', $prod->getAtivo());
             $stmt->bindValue(':id_produto', $prod->getIdProduto());
-            
+
             $stmt->execute();
             $fabrica->close();
         } catch (PDOException $ex) {
