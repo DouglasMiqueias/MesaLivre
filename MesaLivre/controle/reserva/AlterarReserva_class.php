@@ -1,5 +1,7 @@
 <?php
 include_once("modelo/reserva/ReservaDAO_class.php");
+include_once("modelo/cliente/ClienteDAO_class.php");
+include_once("modelo/mesa/MesaDAO_class.php");
 
 class AlterarReserva{
     public function __construct(){
@@ -9,21 +11,29 @@ class AlterarReserva{
             $r->setIdCliente($_POST["id_cliente"]);
             $r->setIdMesa($_POST["id_mesa"]);
             $r->setDataReserva($_POST["data_reserva"]);
-            $r->setHoraReserva($_POST["hora_reserva"]);
+            $r->setHoraInicio($_POST["hora_inicio"]);
+            $r->setHoraFim($_POST["hora_fim"]);
             $r->setNumeroPessoas($_POST["numero_pessoas"]);
             $r->setObservacoes($_POST["observacoes"]);
             $r->setStatus($_POST["status"]);
-            
+
             $dao = new ReservaDAO();
             $dao->alterar($r);
-            
+
             $status = "Reserva " . $r->getIdReserva() . " alterada com sucesso!";
-            
+
             $lista = $dao->listar();
-            include_once("visao/reserva/listaReserva.php");            
+            include_once("visao/reserva/listaReserva.php");
         } else {
             $dao = new ReservaDAO();
             $r = $dao->exibir($_GET["id"]);
+
+            $clienteDAO = new ClienteDAO();
+            $clientes = $clienteDAO->listar();
+
+            $mesaDAO = new MesaDAO();
+            $mesas = $mesaDAO->listar();
+
             include_once("visao/reserva/formAlteraReserva.php");
         }
     }

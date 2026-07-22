@@ -7,6 +7,7 @@
 ?>
 
 <a href="cliente.php?fun=cadastrar" class="btn btn-add">+ Cadastrar Novo Cliente</a>
+<a href="cliente.php?fun=consultar" class="btn btn-add">Consultar</a>
 
 <table>
     <tr>

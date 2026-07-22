@@ -9,12 +9,13 @@ class ClienteDAO {
             $fabrica = new ConnectionFactory();
             $con = $fabrica->getConnection();
             
-            $stmt = $con->prepare("INSERT INTO clientes (nome, telefone, endereco, bairro, data_cadastro) VALUES (:nome, :telefone, :endereco, :bairro, :data_cadastro)");
+            $stmt = $con->prepare("INSERT INTO clientes (nome, telefone, endereco, bairro, observacoes, data_cadastro) VALUES (:nome, :telefone, :endereco, :bairro, :observacoes, :data_cadastro)");
             
             $stmt->bindValue(':nome', $cli->getNome());
             $stmt->bindValue(':telefone', $cli->getTelefone());
             $stmt->bindValue(':endereco', $cli->getEndereco());
             $stmt->bindValue(':bairro', $cli->getBairro());
+            $stmt->bindValue(':observacoes', $cli->getObservacoes());
             $stmt->bindValue(':data_cadastro', $cli->getDataCadastro());
             
             $stmt->execute();
@@ -45,12 +46,13 @@ class ClienteDAO {
             $fabrica = new ConnectionFactory();
             $con = $fabrica->getConnection();
             
-            $stmt = $con->prepare("UPDATE clientes SET nome = :nome, telefone = :telefone, endereco = :endereco, bairro = :bairro, data_cadastro = :data_cadastro WHERE id_cliente = :id_cliente");
+            $stmt = $con->prepare("UPDATE clientes SET nome = :nome, telefone = :telefone, endereco = :endereco, bairro = :bairro, observacoes = :observacoes, data_cadastro = :data_cadastro WHERE id_cliente = :id_cliente");
             
             $stmt->bindValue(':nome', $cli->getNome());
             $stmt->bindValue(':telefone', $cli->getTelefone());
             $stmt->bindValue(':endereco', $cli->getEndereco());
             $stmt->bindValue(':bairro', $cli->getBairro());
+            $stmt->bindValue(':observacoes', $cli->getObservacoes());
             $stmt->bindValue(':data_cadastro', $cli->getDataCadastro());
             $stmt->bindValue(':id_cliente', $cli->getIdCliente());
             
@@ -95,11 +97,30 @@ class ClienteDAO {
             $c->setTelefone($dado[0]["telefone"]);
             $c->setEndereco($dado[0]["endereco"]);
             $c->setBairro($dado[0]["bairro"]);
+            $c->setObservacoes($dado[0]["observacoes"]);
             $c->setDataCadastro($dado[0]["data_cadastro"]);
             
             return $c;
         } catch (PDOException $ex) {
             echo "Erro ao exibir cliente: " . $ex->getMessage();
+        }
+    }
+
+    public function buscarPorNome($nome){
+        try{
+            $fabrica = new ConnectionFactory();
+            $con = $fabrica->getConnection();
+            
+            $stmt = $con->prepare("SELECT * FROM clientes WHERE nome LIKE :nome");
+            $stmt->bindValue(':nome', '%' . $nome . '%');
+            $stmt->execute();
+            
+            $dado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $fabrica->close();
+            
+            return $dado;
+        } catch (PDOException $ex) {
+            echo "Erro ao buscar cliente por nome: " . $ex->getMessage();
         }
     }
 }

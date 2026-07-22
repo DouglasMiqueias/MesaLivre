@@ -7,6 +7,7 @@
 ?>
 
 <a href="reserva.php?fun=cadastrar" class="btn btn-add">+ Cadastrar Nova Reserva</a>
+<a href="reserva.php?fun=consultar" class="btn btn-add">Consultar</a>
 
 <table>
     <tr>
@@ -35,9 +36,9 @@
             echo "<td>".$reserva['numero_pessoas']."</td>";
             echo "<td>".$reserva['status']."</td>";
             echo "<td>".$reserva['observacoes']."</td>";
-            echo "<td>
-                    <a href='reserva.php?fun=alterar&id=".$reserva['id_reserva']."'>Alterar</a> |
-                    <a href='reserva.php?fun=excluir&id=".$reserva['id_reserva']."'>Excluir</a>
+            echo "<td class='actions-cell'>
+                    <a href='reserva.php?fun=alterar&id=".$reserva['id_reserva']."' class='btn btn-edit'>Alterar</a>
+                    <a href='reserva.php?fun=excluir&id=".$reserva['id_reserva']."' class='btn btn-delete'>Excluir</a>
                   </td>";
             echo "</tr>";
         }

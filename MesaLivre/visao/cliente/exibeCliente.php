@@ -27,6 +27,11 @@
     </div>
     
     <div class="detail-item">
+        <span class="detail-label">Observações:</span>
+        <span class="detail-value"><?php echo nl2br($c->getObservacoes() ?? ''); ?></span>
+    </div>
+    
+    <div class="detail-item">
         <span class="detail-label">Data de Cadastro:</span>
         <span class="detail-value"><?php echo $c->getDataCadastro(); ?></span>
     </div>

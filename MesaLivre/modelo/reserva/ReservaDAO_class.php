@@ -30,7 +30,7 @@ class ReservaDAO{
             $fabrica = new ConnectionFactory();
             $con = $fabrica->getConnection();
 
-            $stmt = $con->prepare("SELECT * FROM reservas");
+            $stmt = $con->prepare("SELECT r.*, c.nome as nome_cliente, m.numero as numero_mesa FROM reservas r LEFT JOIN clientes c ON r.id_cliente = c.id_cliente LEFT JOIN mesas m ON r.id_mesa = m.id_mesa");
             $stmt->execute();
 
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

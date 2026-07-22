@@ -14,26 +14,30 @@ include_once("visao/topo.php");
 		if($fun == "cadastrar"){
 			include_once("controle/mesa/CadastrarMesa_class.php");
 			$pag = new CadastrarMesa();
-			
+
 		} elseif($fun == "alterar"){
 			include_once("controle/mesa/AlterarMesa_class.php");
 			$pag = new AlterarMesa();
-			
+
 		} elseif($fun == "excluir"){
 			include_once("controle/mesa/ExcluirMesa_class.php");
 			$pag = new ExcluirMesa();
-			
+
 		} elseif($fun == "listar"){
 			include_once("controle/mesa/ListarMesa_class.php");
 			$pag = new ListarMesa();
-			
+
 		} elseif($fun == "exibir") {
 			include_once("controle/mesa/ExibirMesa_class.php");
 			$pag = new ExibirMesa();
-			
+
+		} elseif($fun == "consultar") {
+			include_once("controle/mesa/ConsultarMesa_class.php");
+			$pag = new ConsultarMesa();
+
 		} else {
 			include_once("controle/mesa/ListarMesa_class.php");
-			$pag = new ListarMesa();			
+			$pag = new ListarMesa();
 		}
 			
 	} else {

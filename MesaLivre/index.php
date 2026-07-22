@@ -17,7 +17,7 @@ $mesas_livres = 0;
 $mesas_ocupadas = 0;
 
 foreach($mesas as $mesa){
-    if($mesa['status'] == 'livre'){
+    if($mesa['status'] == 'disponivel'){
         $mesas_livres++;
     } elseif($mesa['status'] == 'ocupada'){
         $mesas_ocupadas++;
@@ -53,7 +53,7 @@ foreach($mesas as $mesa){
     .stat-card.total {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
-    .stat-card.livre {
+    .stat-card.disponivel {
         background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
     }
     .stat-card.ocupada {
@@ -87,7 +87,7 @@ foreach($mesas as $mesa){
         transform: translateY(-5px);
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    .mesa-card.livre {
+    .mesa-card.disponivel {
         border-left-color: #27ae60;
     }
     .mesa-card.ocupada {
@@ -95,6 +95,9 @@ foreach($mesas as $mesa){
     }
     .mesa-card.reservada {
         border-left-color: #ffc107;
+    }
+    .mesa-card.limpeza {
+        border-left-color: #17a2b8;
     }
     .mesa-card.manutencao {
         border-left-color: #6c757d;
@@ -118,7 +121,7 @@ foreach($mesas as $mesa){
         font-weight: bold;
         margin-top: 10px;
     }
-    .mesa-status.livre {
+    .mesa-status.disponivel {
         background-color: #d4edda;
         color: #155724;
     }
@@ -129,6 +132,10 @@ foreach($mesas as $mesa){
     .mesa-status.reservada {
         background-color: #fff3cd;
         color: #856404;
+    }
+    .mesa-status.limpeza {
+        background-color: #d1ecf1;
+        color: #0c5460;
     }
     .mesa-status.manutencao {
         background-color: #e2e3e5;
@@ -153,9 +160,9 @@ foreach($mesas as $mesa){
         <span class="stat-number"><?php echo $total_mesas; ?></span>
         <span class="stat-label">Total de Mesas</span>
     </div>
-    <div class="stat-card livre">
+    <div class="stat-card disponivel">
         <span class="stat-number"><?php echo $mesas_livres; ?></span>
-        <span class="stat-label">Mesas Livres</span>
+        <span class="stat-label">Mesas Disponíveis</span>
     </div>
     <div class="stat-card ocupada">
         <span class="stat-number"><?php echo $mesas_ocupadas; ?></span>

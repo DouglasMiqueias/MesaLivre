@@ -23,6 +23,11 @@
         </div>
         
         <div class="form-group">
+            <label for="observacoes">Observações:</label>
+            <textarea name="observacoes" id="observacoes" rows="4"></textarea>
+        </div>
+        
+        <div class="form-group">
             <label for="data_cadastro">Data de Cadastro:</label>
             <input type="date" name="data_cadastro" id="data_cadastro" value="<?php echo date('Y-m-d'); ?>" required>
         </div>
