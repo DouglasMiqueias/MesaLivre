@@ -31,6 +31,10 @@ include_once("visao/topo.php");
             include_once("controle/categoria/ExibirCategoria_class.php");
             $pag = new ExibirCategoria();
 
+        } elseif($fun == "consultar") {
+            include_once("controle/categoria/ConsultarCategoria_class.php");
+            $pag = new ConsultarCategoria();
+
         } else {
             include_once("controle/categoria/ListarCategoria_class.php");
             $pag = new ListarCategoria();
