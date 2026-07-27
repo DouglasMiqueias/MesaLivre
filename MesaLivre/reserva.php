@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['logado']) || $_SESSION['logado'] != true){
-    header("Location: ../landing.php");
+    header("Location: usuario.php?fun=logar");
     exit();
 }
 
