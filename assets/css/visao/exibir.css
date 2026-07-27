@@ -6,9 +6,9 @@
     border-radius: 8px;
 }
 h2 {
-    color: #2c3e50;
+    color: #1E293B;
     margin-bottom: 20px;
-    border-bottom: 2px solid #2c3e50;
+    border-bottom: 2px solid #2563EB;
     padding-bottom: 10px;
 }
 .detail-item {
@@ -55,7 +55,7 @@ h2 {
     font-size: 14px;
 }
 .btn-back {
-    background-color: #2c3e50;
+    background-color: #2563EB;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -64,6 +64,6 @@ h2 {
     margin-top: 20px;
 }
 .btn-back:hover {
-    background-color: #34495e;
+    background-color: #1D4ED8;
 }
 

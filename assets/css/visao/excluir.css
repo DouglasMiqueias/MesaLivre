@@ -26,14 +26,14 @@
         display: inline-block;
     }
     .confirm-box .btn-yes {
-        background-color: #e74c3c;
+        background-color: #EF4444;
     }
     .confirm-box .btn-yes:hover {
-        background-color: #c0392b;
+        background-color: #DC2626;
     }
     .confirm-box .btn-no {
-        background-color: #95a5a6;
+        background-color: #64748B;
     }
     .confirm-box .btn-no:hover {
-        background-color: #7f8c8d;
+        background-color: #475569;
     }

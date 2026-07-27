@@ -31,7 +31,7 @@ foreach($mesas as $mesa){
         margin-bottom: 40px;
     }
     .dashboard-header h1 {
-        color: #dc3545;
+        color: #1E293B;
         font-size: 36px;
         margin-bottom: 10px;
     }
@@ -42,7 +42,7 @@ foreach($mesas as $mesa){
         margin-bottom: 40px;
     }
     .stat-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
         color: white;
         padding: 20px 30px;
         border-radius: 10px;
@@ -51,13 +51,13 @@ foreach($mesas as $mesa){
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     .stat-card.total {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
     }
     .stat-card.disponivel {
-        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
     }
     .stat-card.ocupada {
-        background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+        background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
     }
     .stat-number {
         font-size: 36px;
@@ -88,19 +88,19 @@ foreach($mesas as $mesa){
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     .mesa-card.disponivel {
-        border-left-color: #27ae60;
+        border-left-color: #22C55E;
     }
     .mesa-card.ocupada {
-        border-left-color: #dc3545;
+        border-left-color: #F97316;
     }
     .mesa-card.reservada {
-        border-left-color: #ffc107;
+        border-left-color: #EAB308;
     }
     .mesa-card.limpeza {
-        border-left-color: #17a2b8;
+        border-left-color: #3B82F6;
     }
     .mesa-card.manutencao {
-        border-left-color: #6c757d;
+        border-left-color: #64748B;
     }
     .mesa-number {
         font-size: 24px;
@@ -122,31 +122,31 @@ foreach($mesas as $mesa){
         margin-top: 10px;
     }
     .mesa-status.disponivel {
-        background-color: #d4edda;
-        color: #155724;
+        background-color: #DCFCE7;
+        color: #166534;
     }
     .mesa-status.ocupada {
-        background-color: #f8d7da;
-        color: #721c24;
+        background-color: #FFEDD5;
+        color: #9A3412;
     }
     .mesa-status.reservada {
-        background-color: #fff3cd;
-        color: #856404;
+        background-color: #FEF3C7;
+        color: #854D0E;
     }
     .mesa-status.limpeza {
-        background-color: #d1ecf1;
-        color: #0c5460;
+        background-color: #DBEAFE;
+        color: #1E40AF;
     }
     .mesa-status.manutencao {
-        background-color: #e2e3e5;
-        color: #383d41;
+        background-color: #E2E8F0;
+        color: #334155;
     }
     .section-title {
-        color: #2c3e50;
+        color: #1E293B;
         font-size: 24px;
         margin: 30px 0 20px;
         padding-bottom: 10px;
-        border-bottom: 2px solid #dc3545;
+        border-bottom: 2px solid #2563EB;
     }
 </style>
 
@@ -187,7 +187,7 @@ foreach($mesas as $mesa){
 <?php else: ?>
     <div style="text-align: center; padding: 40px; color: #666;">
         <h3>Nenhuma mesa cadastrada</h3>
-        <p><a href="mesa.php?fun=cadastrar" style="color: #dc3545;">Cadastrar primeira mesa →</a></p>
+        <p><a href="mesa.php?fun=cadastrar" style="color: #2563EB;">Cadastrar primeira mesa →</a></p>
     </div>
 <?php endif; ?>
 
