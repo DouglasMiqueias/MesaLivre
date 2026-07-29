@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['logado']) || $_SESSION['logado'] != true){
-    header("Location: ../landing.php");
+    header("Location: usuario.php?fun=logar");
     exit();
 }
 
@@ -30,6 +30,10 @@ include_once("visao/topo.php");
         } elseif($fun == "exibir") {
             include_once("controle/categoria/ExibirCategoria_class.php");
             $pag = new ExibirCategoria();
+
+        } elseif($fun == "consultar") {
+            include_once("controle/categoria/ConsultarCategoria_class.php");
+            $pag = new ConsultarCategoria();
 
         } else {
             include_once("controle/categoria/ListarCategoria_class.php");

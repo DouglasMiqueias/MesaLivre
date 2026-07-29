@@ -3,7 +3,7 @@
     margin: 0 auto;
 }
 h2 {
-    color: #2c3e50;
+    color: #1E293B;
     margin-bottom: 20px;
 }
 .form-group {
@@ -12,27 +12,49 @@ h2 {
 label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: #334155;
     font-weight: bold;
 }
 input[type="text"],
 input[type="number"],
 input[type="date"],
+input[type="email"],
+input[type="password"],
 select,
 textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #CBD5E1;
     border-radius: 4px;
     font-size: 14px;
+}
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="date"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover,
+select:hover,
+textarea:hover {
+    border-color: #60A5FA;
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2563EB;
+    box-shadow: 0 0 0 4px rgba(37,99,235,.15);
 }
 textarea {
     min-height: 100px;
     resize: vertical;
 }
 input[type="submit"] {
-    background-color: #2c3e50;
-    color: white;
+    background-color: #2563EB;
+    color: #FFFFFF;
     padding: 12px 30px;
     border: none;
     border-radius: 4px;
@@ -41,14 +63,24 @@ input[type="submit"] {
     margin-top: 10px;
 }
 input[type="submit"]:hover {
-    background-color: #34495e;
+    background-color: #1D4ED8;
+}
+input[type="submit"]:active {
+    background-color: #1E40AF;
 }
 .btn-back {
-    background-color: #95a5a6;
-    color: white;
+    background-color: #FFFFFF;
+    color: #2563EB;
+    border: 1px solid #2563EB;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 4px;
     display: inline-block;
     margin-top: 10px;
+}
+.btn-back:hover {
+    background-color: #EFF6FF;
+}
+.btn-back:active {
+    background-color: #DBEAFE;
 }

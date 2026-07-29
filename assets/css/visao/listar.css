@@ -3,111 +3,157 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
 }
-th, td {
+
+th,
+td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #E2E8F0;
     font-size: 14px;
 }
+
 td:last-child {
     white-space: nowrap;
 }
+
 .actions-cell {
     white-space: nowrap;
     width: 160px;
     min-width: 160px;
 }
+
 th {
-    background-color: #dc3545;
-    color: white;
+    background-color: #2563EB;
+    color: #FFFFFF;
 }
+
 tr:hover {
-    background-color: #f5f5f5;
+    background-color: #EFF6FF;
 }
+
 .btn {
     padding: 5px 10px;
     text-decoration: none;
     border-radius: 3px;
-    color: white;
+    color: #FFFFFF;
     font-size: 12px;
     display: inline-block;
     margin: 0;
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
-.btn + .btn {
+
+.btn+.btn {
     margin-left: 5px;
 }
+
 .btn:hover {
     transform: translateY(-1px);
 }
+
 .btn:active {
     transform: translateY(0);
 }
-.btn-edit {
-    background-color: #dc3545;
-}
-.btn-edit:hover {
-    background-color: #bd2130;
-}
-.btn-delete {
-    background-color: #e74c3c;
-}
-.btn-delete:hover {
-    background-color: #c0392b;
-}
+
 .btn-view {
-    background-color: #27ae60;
+    background-color: #22C55E;
 }
+
 .btn-view:hover {
-    background-color: #219653;
+    background-color: #16A34A;
 }
+
+.btn-view:active {
+    background-color: #15803D;
+}
+
+.btn-edit {
+    background-color: #EAB308;
+}
+
+.btn-edit:hover {
+    background-color: #CA8A04;
+}
+
+.btn-edit:active {
+    background-color: #A16207;
+}
+
+.btn-delete {
+    background-color: #EF4444;
+}
+
+.btn-delete:hover {
+    background-color: #DC2626;
+}
+
+.btn-delete:active {
+    background-color: #B91C1C;
+}
+
 .btn-add {
-    background-color: #dc3545;
+    background-color: #2563EB;
     padding: 10px 20px;
     display: inline-block;
     margin-bottom: 20px;
     font-size: 14px;
     font-weight: bold;
 }
+
 .btn-add:hover {
-    background-color: #bd2130;
+    background-color: #1D4ED8;
 }
+
 h2 {
-    color: #dc3545;
+    color: #1E293B;
     margin-bottom: 20px;
     font-size: 24px;
 }
+
 .status {
-    background-color: #d4edda;
-    color: #155724;
+    background-color: #DCFCE7;
+    color: #166534;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
+
+.status-error {
+    background-color: #FEE2E2;
+    color: #991B1B;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
 .status-badge {
     padding: 4px 10px;
     border-radius: 12px;
     font-size: 12px;
     font-weight: bold;
 }
+
 .status-livre,
 .status-disponivel {
-    background-color: #d4edda;
-    color: #155724;
+    background-color: #DCFCE7;
+    color: #166534;
 }
+
 .status-ocupada {
-    background-color: #f8d7da;
-    color: #721c24;
+    background-color: #FFEDD5;
+    color: #9A3412;
 }
+
 .status-reservada {
-    background-color: #fff3cd;
-    color: #856404;
+    background-color: #FEF3C7;
+    color: #854D0E;
 }
+
 .status-limpeza {
-    background-color: #d1ecf1;
-    color: #0c5460;
+    background-color: #DBEAFE;
+    color: #1E40AF;
 }
+
 .status-manutencao {
-    background-color: #e2e3e5;
-    color: #383d41;
+    background-color: #E2E8F0;
+    color: #334155;
 }

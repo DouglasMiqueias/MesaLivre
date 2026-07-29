@@ -31,7 +31,7 @@
 
         <div class="form-group">
             <label for="data_cadastro">Data de Cadastro:</label>
-            <input type="date" name="data_cadastro" id="data_cadastro" value="<?php echo $c->getDataCadastro(); ?>" required readonly style="background-color: #f5f5f5; cursor: not-allowed;">
+            <input type="date" name="data_cadastro" id="data_cadastro" value="<?php echo $c->getDataCadastro(); ?>" required readonly style="background-color: #F1F5F9; cursor: not-allowed;">
         </div>
         
         <input type="submit" name="enviar" value="Salvar Alterações">

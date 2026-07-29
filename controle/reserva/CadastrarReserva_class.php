@@ -32,7 +32,7 @@ class CadastrarReserva{
             $mesaDAO = new MesaDAO();
             $mesas = $mesaDAO->listar();
 
-            include_once("visao/reserva/FormCadastroReserva_class.php");
+            include_once("visao/reserva/formCadastroReserva_class.php");
         }
     }
 }

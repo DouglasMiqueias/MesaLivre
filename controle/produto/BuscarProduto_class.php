@@ -13,7 +13,7 @@ class BuscarProduto {
             if($p !== null){
                 include_once("visao/produto/exibeProduto.php");
             } else {
-                echo "<div class='status' style='background:#f8d7da;color:#721c24;'>Produto com ID <strong>" . htmlspecialchars($_GET["id"]) . "</strong> não encontrado.</div>";
+                echo "<div class='status-error'>Produto com ID <strong>" . htmlspecialchars($_GET["id"]) . "</strong> não encontrado.</div>";
                 echo "<a href='produto.php?fun=listar' class='btn-back'>← Voltar para Lista</a>";
             }
 

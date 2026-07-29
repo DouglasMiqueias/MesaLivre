@@ -2,17 +2,17 @@
         max-width: 500px;
         margin: 50px auto;
         padding: 30px;
-        background-color: #fff3cd;
-        border: 2px solid #ffc107;
+        background-color: #FEF3C7;
+        border: 2px solid #EAB308;
         border-radius: 8px;
         text-align: center;
     }
     .confirm-box h2 {
-        color: #856404;
+        color: #854D0E;
         margin-bottom: 20px;
     }
     .confirm-box p {
-        color: #856404;
+        color: #854D0E;
         font-size: 16px;
         margin-bottom: 30px;
     }
@@ -20,20 +20,20 @@
         padding: 12px 30px;
         text-decoration: none;
         border-radius: 4px;
-        color: white;
+        color: #FFFFFF;
         font-size: 16px;
         margin: 0 10px;
         display: inline-block;
     }
     .confirm-box .btn-yes {
-        background-color: #e74c3c;
+        background-color: #EF4444;
     }
     .confirm-box .btn-yes:hover {
-        background-color: #c0392b;
+        background-color: #DC2626;
     }
     .confirm-box .btn-no {
-        background-color: #95a5a6;
+        background-color: #64748B;
     }
     .confirm-box .btn-no:hover {
-        background-color: #7f8c8d;
+        background-color: #475569;
     }

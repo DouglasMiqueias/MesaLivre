@@ -7,6 +7,7 @@
 ?>
 
 <a href="categoria.php?fun=cadastrar" class="btn btn-add">+ Cadastrar Nova Categoria</a>
+<a href="categoria.php?fun=consultar" class="btn btn-add">Consultar</a>
 
 <table>
     <tr>
@@ -25,7 +26,7 @@
             echo "<td>".$categoria['id_categoria']."</td>";
             echo "<td><a href='categoria.php?fun=exibir&id=".$categoria['id_categoria']."'>".$categoria['nome']."</a></td>";
             echo "<td>
-                    <span style='display: inline-block; width: 20px; height: 20px; background-color: ".$categoria['cor']."; border: 1px solid #ccc; margin-right: 5px;'></span>
+                    <span style='display: inline-block; width: 20px; height: 20px; background-color: ".$categoria['cor']."; border: 1px solid #E2E8F0; margin-right: 5px;'></span>
                     ".$categoria['cor']."
                   </td>";
             echo "<td>".$categoria['icone']."</td>";
