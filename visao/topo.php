@@ -13,11 +13,11 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link rel="stylesheet" href="../assets/css/visao/exibir.css">
-    <link rel="stylesheet" href="../assets/css/visao/alterar.css">
-    <link rel="stylesheet" href="../assets/css/visao/cadastrar.css">
-    <link rel="stylesheet" href="../assets/css/visao/listar.css">
-    <link rel="stylesheet" href="../assets/css/visao/excluir.css">
+    <link rel="stylesheet" href="assets/css/visao/exibir.css">
+    <link rel="stylesheet" href="assets/css/visao/alterar.css">
+    <link rel="stylesheet" href="assets/css/visao/cadastrar.css">
+    <link rel="stylesheet" href="assets/css/visao/listar.css">
+    <link rel="stylesheet" href="assets/css/visao/excluir.css">
     <style>
         * {
             margin: 0;
@@ -194,10 +194,10 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px;
-            background-color: white;
+            background-color: #FFFFFF;
             border-radius: 16px;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.02);
-            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(15,23,42,.05);
+            border: 1px solid #E2E8F0;
             min-height: 500px;
         }
     </style>

@@ -19,9 +19,9 @@
             max-width: 400px;
             width: 100%;
             padding: 40px;
-            background-color: white;
+            background-color: #FFFFFF;
             border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 50px rgba(15,23,42,.18);
         }
         .login-container h2 {
             color: #1E293B;
@@ -40,27 +40,34 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #333;
+            color: #334155;
             font-weight: bold;
         }
         .form-group input[type="email"],
         .form-group input[type="password"] {
             width: 100%;
             padding: 12px;
-            border: 2px solid #ddd;
+            border: 1px solid #CBD5E1;
             border-radius: 6px;
             font-size: 14px;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
             box-sizing: border-box;
+        }
+        .form-group input:hover {
+            border-color: #60A5FA;
         }
         .form-group input:focus {
             outline: none;
             border-color: #2563EB;
+            box-shadow: 0 0 0 4px rgba(37,99,235,.15);
+        }
+        .form-group input::placeholder {
+            color: #94A3B8;
         }
         .btn-login {
             width: 100%;
             background-color: #2563EB;
-            color: white;
+            color: #FFFFFF;
             padding: 14px;
             border: none;
             border-radius: 6px;
@@ -72,19 +79,22 @@
         .btn-login:hover {
             background-color: #1D4ED8;
         }
+        .btn-login:active {
+            background-color: #1E40AF;
+        }
         .error-message {
-            background-color: #f8d7da;
-            color: #721c24;
+            background-color: #FEE2E2;
+            color: #991B1B;
             padding: 12px;
             border-radius: 6px;
             margin-bottom: 20px;
-            border: 1px solid #f5c6cb;
+            border: 1px solid #FECACA;
             text-align: center;
         }
         .login-footer {
             text-align: center;
             margin-top: 20px;
-            color: #666;
+            color: #64748B;
         }
         .login-footer a {
             color: #2563EB;
@@ -99,7 +109,7 @@
     <div class="login-container">
     <div class="login-logo">🔐</div>
     <h2>MesaLivre</h2>
-    <p style="text-align: center; color: #666; margin-bottom: 30px;">Sistema de Reservas de Mesas</p>
+    <p style="text-align: center; color: #64748B; margin-bottom: 30px;">Sistema de Reservas de Mesas</p>
     
     <?php
     if(isset($erro)){

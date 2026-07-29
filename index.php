@@ -43,12 +43,12 @@ foreach($mesas as $mesa){
     }
     .stat-card {
         background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
-        color: white;
+        color: #FFFFFF;
         padding: 20px 30px;
         border-radius: 10px;
         text-align: center;
         min-width: 150px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(15,23,42,.05);
     }
     .stat-card.total {
         background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
@@ -75,17 +75,18 @@ foreach($mesas as $mesa){
         margin-top: 30px;
     }
     .mesa-card {
-        background: white;
+        background: #FFFFFF;
         border-radius: 10px;
         padding: 20px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(15,23,42,.05);
+        border: 1px solid #E2E8F0;
         cursor: pointer;
         transition: transform 0.2s, box-shadow 0.2s;
         border-left: 5px solid;
     }
     .mesa-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(37,99,235,.10);
     }
     .mesa-card.disponivel {
         border-left-color: #22C55E;
@@ -105,12 +106,12 @@ foreach($mesas as $mesa){
     .mesa-number {
         font-size: 24px;
         font-weight: bold;
-        color: #2c3e50;
+        color: #1E293B;
         margin-bottom: 10px;
     }
     .mesa-info {
         font-size: 14px;
-        color: #666;
+        color: #64748B;
         margin-bottom: 5px;
     }
     .mesa-status {
@@ -152,7 +153,7 @@ foreach($mesas as $mesa){
 
 <div class="dashboard-header">
     <h1>🪑 Dashboard de Mesas</h1>
-    <p style="color: #666;">Visão geral do status das mesas do restaurante</p>
+    <p style="color: #64748B;">Visão geral do status das mesas do restaurante</p>
 </div>
 
 <div class="stats-container">
@@ -185,7 +186,7 @@ foreach($mesas as $mesa){
         <?php endforeach; ?>
     </div>
 <?php else: ?>
-    <div style="text-align: center; padding: 40px; color: #666;">
+    <div style="text-align: center; padding: 40px; color: #64748B;">
         <h3>Nenhuma mesa cadastrada</h3>
         <p><a href="mesa.php?fun=cadastrar" style="color: #2563EB;">Cadastrar primeira mesa →</a></p>
     </div>

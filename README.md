@@ -15,7 +15,7 @@ Sistema web completo para gerenciamento de reservas de mesas em restaurantes, de
 ## 📁 Estrutura do Projeto
 
 ```
-MesaLivre/MesaLivre/
+MesaLivre/
 ├── modelo/
 │   ├── usuario/          # Entidades e DAO de usuários
 │   ├── cliente/          # Entidades e DAO de clientes
@@ -41,16 +41,16 @@ MesaLivre/MesaLivre/
 │   └── categoria/        # Telas de categorias
 ├── assets/
 │   └── css/
-│       └── visao/        # CSS centralizado (exibir, alterar, cadastrar, listar, excluir)
-├── index.php             # Dashboard principal
-├── cliente.php           # Roteador de clientes
-├── produto.php           # Roteador de produtos
-├── mesa.php              # Roteador de mesas
-├── reserva.php           # Roteador de reservas
-├── categoria.php         # Roteador de categorias
-├── usuario.php           # Roteador de usuários (login/logout)
-└── database.sql          # Script de criação do BD
-
+│       └── visao/            # CSS centralizado (exibir, alterar, cadastrar, listar, excluir)
+├── index.php                 # Dashboard principal
+├── cliente.php               # Roteador de clientes
+├── produto.php               # Roteador de produtos
+├── mesa.php                  # Roteador de mesas
+├── reserva.php               # Roteador de reservas
+├── categoria.php             # Roteador de categorias
+├── usuario.php               # Roteador de usuários (login/logout)
+├── database.sql              # Script de criação do BD
+└── README.md
 ```
 
 ## ⚙️ Configuração
@@ -81,15 +81,15 @@ public $db = "mesalivre";
 Inicie um servidor PHP local:
 
 ```bash
-cd MesaLivre/MesaLivre
+cd MesaLivre
 php -S localhost:8000
 ```
 
-Ou use XAMPP/WAMP e acesse via `http://localhost/MesaLivre/MesaLivre/`
+Ou use XAMPP/WAMP e acesse via `http://localhost/MesaLivre/`
 
 ### 4. Acesso Inicial
 
-Acesse `http://localhost/MesaLivre/MesaLivre/usuario.php?fun=logar` para fazer login.
+Acesse `http://localhost/MesaLivre/usuario.php?fun=logar` para fazer login.
 
 **Usuário padrão:** `iftm`
 **Senha padrão:** (verificar no banco de dados - hash MD5)
@@ -177,63 +177,63 @@ O projeto segue o padrão **MVC (Model-View-Controller)**:
 
 ### Autenticação
 ```
-http://localhost/MesaLivre/MesaLivre/usuario.php?fun=logar     # Login
-http://localhost/MesaLivre/MesaLivre/usuario.php?fun=logout    # Logout
+http://localhost/MesaLivre/usuario.php?fun=logar     # Login
+http://localhost/MesaLivre/usuario.php?fun=logout    # Logout
 ```
 
 ### Clientes
 ```
-http://localhost/MesaLivre/MesaLivre/cliente.php?fun=listar    # Listar clientes
-http://localhost/MesaLivre/MesaLivre/cliente.php?fun=cadastrar # Cadastrar cliente
-http://localhost/MesaLivre/MesaLivre/cliente.php?fun=alterar&id=1  # Alterar cliente
-http://localhost/MesaLivre/MesaLivre/cliente.php?fun=exibir&id=1   # Exibir cliente
-http://localhost/MesaLivre/MesaLivre/cliente.php?fun=excluir&id=1  # Excluir cliente
-http://localhost/MesaLivre/MesaLivre/cliente.php?fun=consultar     # Consultar cliente
+http://localhost/MesaLivre/cliente.php?fun=listar    # Listar clientes
+http://localhost/MesaLivre/cliente.php?fun=cadastrar # Cadastrar cliente
+http://localhost/MesaLivre/cliente.php?fun=alterar&id=1  # Alterar cliente
+http://localhost/MesaLivre/cliente.php?fun=exibir&id=1   # Exibir cliente
+http://localhost/MesaLivre/cliente.php?fun=excluir&id=1  # Excluir cliente
+http://localhost/MesaLivre/cliente.php?fun=consultar     # Consultar cliente
 ```
 
 ### Mesas
 ```
-http://localhost/MesaLivre/MesaLivre/mesa.php?fun=listar      # Listar mesas
-http://localhost/MesaLivre/MesaLivre/mesa.php?fun=cadastrar    # Cadastrar mesa
-http://localhost/MesaLivre/MesaLivre/mesa.php?fun=alterar&id=1 # Alterar mesa
-http://localhost/MesaLivre/MesaLivre/mesa.php?fun=exibir&id=1  # Exibir mesa
-http://localhost/MesaLivre/MesaLivre/mesa.php?fun=excluir&id=1 # Excluir mesa
-http://localhost/MesaLivre/MesaLivre/mesa.php?fun=consultar    # Consultar mesa
+http://localhost/MesaLivre/mesa.php?fun=listar      # Listar mesas
+http://localhost/MesaLivre/mesa.php?fun=cadastrar    # Cadastrar mesa
+http://localhost/MesaLivre/mesa.php?fun=alterar&id=1 # Alterar mesa
+http://localhost/MesaLivre/mesa.php?fun=exibir&id=1  # Exibir mesa
+http://localhost/MesaLivre/mesa.php?fun=excluir&id=1 # Excluir mesa
+http://localhost/MesaLivre/mesa.php?fun=consultar    # Consultar mesa
 ```
 
 ### Produtos
 ```
-http://localhost/MesaLivre/MesaLivre/produto.php?fun=listar     # Listar produtos
-http://localhost/MesaLivre/MesaLivre/produto.php?fun=cadastrar   # Cadastrar produto
-http://localhost/MesaLivre/MesaLivre/produto.php?fun=alterar&id=1 # Alterar produto
-http://localhost/MesaLivre/MesaLivre/produto.php?fun=exibir&id=1  # Exibir produto
-http://localhost/MesaLivre/MesaLivre/produto.php?fun=excluir&id=1 # Excluir produto
-http://localhost/MesaLivre/MesaLivre/produto.php?fun=consultar    # Consultar produto
+http://localhost/MesaLivre/produto.php?fun=listar     # Listar produtos
+http://localhost/MesaLivre/produto.php?fun=cadastrar   # Cadastrar produto
+http://localhost/MesaLivre/produto.php?fun=alterar&id=1 # Alterar produto
+http://localhost/MesaLivre/produto.php?fun=exibir&id=1  # Exibir produto
+http://localhost/MesaLivre/produto.php?fun=excluir&id=1 # Excluir produto
+http://localhost/MesaLivre/produto.php?fun=consultar    # Consultar produto
 ```
 
 ### Reservas
 ```
-http://localhost/MesaLivre/MesaLivre/reserva.php?fun=listar     # Listar reservas
-http://localhost/MesaLivre/MesaLivre/reserva.php?fun=cadastrar   # Cadastrar reserva
-http://localhost/MesaLivre/MesaLivre/reserva.php?fun=alterar&id=1 # Alterar reserva
-http://localhost/MesaLivre/MesaLivre/reserva.php?fun=exibir&id=1  # Exibir reserva
-http://localhost/MesaLivre/MesaLivre/reserva.php?fun=excluir&id=1 # Excluir reserva
-http://localhost/MesaLivre/MesaLivre/reserva.php?fun=consultar    # Consultar reserva
+http://localhost/MesaLivre/reserva.php?fun=listar     # Listar reservas
+http://localhost/MesaLivre/reserva.php?fun=cadastrar   # Cadastrar reserva
+http://localhost/MesaLivre/reserva.php?fun=alterar&id=1 # Alterar reserva
+http://localhost/MesaLivre/reserva.php?fun=exibir&id=1  # Exibir reserva
+http://localhost/MesaLivre/reserva.php?fun=excluir&id=1 # Excluir reserva
+http://localhost/MesaLivre/reserva.php?fun=consultar    # Consultar reserva
 ```
 
 ### Categorias
 ```
-http://localhost/MesaLivre/MesaLivre/categoria.php?fun=listar     # Listar categorias
-http://localhost/MesaLivre/MesaLivre/categoria.php?fun=cadastrar   # Cadastrar categoria
-http://localhost/MesaLivre/MesaLivre/categoria.php?fun=alterar&id=1 # Alterar categoria
-http://localhost/MesaLivre/MesaLivre/categoria.php?fun=exibir&id=1  # Exibir categoria
-http://localhost/MesaLivre/MesaLivre/categoria.php?fun=excluir&id=1 # Excluir categoria
-http://localhost/MesaLivre/MesaLivre/categoria.php?fun=consultar    # Consultar categoria
+http://localhost/MesaLivre/categoria.php?fun=listar     # Listar categorias
+http://localhost/MesaLivre/categoria.php?fun=cadastrar   # Cadastrar categoria
+http://localhost/MesaLivre/categoria.php?fun=alterar&id=1 # Alterar categoria
+http://localhost/MesaLivre/categoria.php?fun=exibir&id=1  # Exibir categoria
+http://localhost/MesaLivre/categoria.php?fun=excluir&id=1 # Excluir categoria
+http://localhost/MesaLivre/categoria.php?fun=consultar    # Consultar categoria
 ```
 
 ### Dashboard
 ```
-http://localhost/MesaLivre/MesaLivre/index.php    # Dashboard principal
+http://localhost/MesaLivre/index.php    # Dashboard principal
 ```
 
 ## 👨‍💻 Autor

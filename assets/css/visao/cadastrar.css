@@ -12,7 +12,7 @@ h2 {
 label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: #334155;
     font-weight: bold;
 }
 input[type="text"],
@@ -27,6 +27,15 @@ textarea {
     border: 1px solid #CBD5E1;
     border-radius: 4px;
     font-size: 14px;
+}
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="date"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover,
+select:hover,
+textarea:hover {
+    border-color: #60A5FA;
 }
 input[type="text"]:focus,
 input[type="number"]:focus,
@@ -45,7 +54,7 @@ textarea {
 }
 input[type="submit"] {
     background-color: #2563EB;
-    color: white;
+    color: #FFFFFF;
     padding: 12px 30px;
     border: none;
     border-radius: 4px;
@@ -56,12 +65,22 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #1D4ED8;
 }
+input[type="submit"]:active {
+    background-color: #1E40AF;
+}
 .btn-back {
-    background-color: #95a5a6;
-    color: white;
+    background-color: #FFFFFF;
+    color: #2563EB;
+    border: 1px solid #2563EB;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 4px;
     display: inline-block;
     margin-top: 10px;
+}
+.btn-back:hover {
+    background-color: #EFF6FF;
+}
+.btn-back:active {
+    background-color: #DBEAFE;
 }
