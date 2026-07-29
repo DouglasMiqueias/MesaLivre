@@ -87,5 +87,9 @@ class UsuarioDAO{
 			return false;
 		}
 	}
+	
+	public function __destruct(){
+		$this->con = null;
+	}
 }
 ?>

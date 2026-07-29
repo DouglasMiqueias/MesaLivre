@@ -3,13 +3,16 @@ include_once "ConnectionFactory_class.php";
 include_once "Produto_class.php";
 
 class ProdutoDAO {
+    public $con = null;
+    
+    public function __construct(){
+        $conF = new ConnectionFactory();
+        $this->con = $conF->getConnection();
+    }
 
     public function cadastrar(Produto $prod){
         try{
-            $fabrica = new ConnectionFactory();
-            $con = $fabrica->getConnection();
-            
-            $stmt = $con->prepare(
+            $stmt = $this->con->prepare(
                 "INSERT INTO produtos (id_categoria, nome, descricao, preco, estoque, tempo_preparo, imagem, ativo)
                  VALUES (:id_categoria, :nome, :descricao, :preco, :estoque, :tempo_preparo, :imagem, :ativo)"
             );
@@ -24,7 +27,6 @@ class ProdutoDAO {
             $stmt->bindValue(':ativo', $prod->getAtivo());
             
             $stmt->execute();
-            $fabrica->close();
         } catch (PDOException $ex){
             echo "Erro ao cadastrar produto: " . $ex->getMessage();
         }
@@ -32,10 +34,7 @@ class ProdutoDAO {
 
     public function listar(){
         try{
-            $fabrica = new ConnectionFactory();
-            $con = $fabrica->getConnection();
-            
-            $stmt = $con->prepare(
+            $stmt = $this->con->prepare(
                 "SELECT p.*, c.nome AS categoria
                  FROM produtos p
                  INNER JOIN categorias c ON p.id_categoria = c.id_categoria
@@ -44,7 +43,6 @@ class ProdutoDAO {
             $stmt->execute();
             
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $fabrica->close();
             return $result;
         } catch (PDOException $ex){
             echo "Erro ao listar produtos: " . $ex->getMessage();
@@ -54,10 +52,7 @@ class ProdutoDAO {
 
     public function alterar(Produto $prod) {
         try {
-            $fabrica = new ConnectionFactory();
-            $con = $fabrica->getConnection();
-            
-            $stmt = $con->prepare(
+            $stmt = $this->con->prepare(
                 "UPDATE produtos SET
                     id_categoria   = :id_categoria,
                     nome           = :nome,
@@ -81,7 +76,6 @@ class ProdutoDAO {
             $stmt->bindValue(':id_produto', $prod->getIdProduto());
             
             $stmt->execute();
-            $fabrica->close();
         } catch (PDOException $ex) {
             echo "Erro ao alterar produto: " . $ex->getMessage();
         }
@@ -89,14 +83,10 @@ class ProdutoDAO {
 
     public function excluir(Produto $prod) {
         try {
-            $fabrica = new ConnectionFactory();
-            $con = $fabrica->getConnection();
-            
-            $stmt = $con->prepare("DELETE FROM produtos WHERE id_produto = :id_produto");
+            $stmt = $this->con->prepare("DELETE FROM produtos WHERE id_produto = :id_produto");
             $stmt->bindValue(':id_produto', $prod->getIdProduto());
             
             $stmt->execute();
-            $fabrica->close();
         } catch (PDOException $ex) {
             echo "Erro ao excluir produto: " . $ex->getMessage();
         }
@@ -104,10 +94,7 @@ class ProdutoDAO {
 
     public function exibir($id) {
         try {
-            $fabrica = new ConnectionFactory();
-            $con = $fabrica->getConnection();
-            
-            $stmt = $con->prepare(
+            $stmt = $this->con->prepare(
                 "SELECT p.*, c.nome AS categoria_nome
                  FROM produtos p
                  INNER JOIN categorias c ON p.id_categoria = c.id_categoria
@@ -117,7 +104,6 @@ class ProdutoDAO {
             $stmt->execute();
             
             $dado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $fabrica->close();
             
             if(count($dado) == 0) return null;
 
@@ -151,10 +137,7 @@ class ProdutoDAO {
      */
     public function buscarPorNome($nome) {
         try {
-            $fabrica = new ConnectionFactory();
-            $con = $fabrica->getConnection();
-
-            $stmt = $con->prepare(
+            $stmt = $this->con->prepare(
                 "SELECT p.*, c.nome AS categoria
                  FROM produtos p
                  INNER JOIN categorias c ON p.id_categoria = c.id_categoria
@@ -165,7 +148,6 @@ class ProdutoDAO {
             $stmt->execute();
 
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $fabrica->close();
             return $result;
         } catch (PDOException $ex) {
             echo "Erro ao buscar produto por nome: " . $ex->getMessage();
@@ -175,22 +157,22 @@ class ProdutoDAO {
 
     public function alterarDisponibilidade($id_produto, $ativo) {
         try {
-            $fabrica = new ConnectionFactory();
-            $con = $fabrica->getConnection();
-
-            $stmt = $con->prepare(
+            $stmt = $this->con->prepare(
                 "UPDATE produtos SET ativo = :ativo WHERE id_produto = :id_produto"
             );
             $stmt->bindValue(':ativo', (int)$ativo, PDO::PARAM_INT);
             $stmt->bindValue(':id_produto', (int)$id_produto, PDO::PARAM_INT);
 
             $stmt->execute();
-            $fabrica->close();
             return true;
         } catch (PDOException $ex) {
             echo "Erro ao alterar disponibilidade: " . $ex->getMessage();
             return false;
         }
+    }
+    
+    public function __destruct(){
+        $this->con = null;
     }
 }
 ?>

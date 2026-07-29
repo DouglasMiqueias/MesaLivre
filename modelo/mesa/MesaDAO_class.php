@@ -3,13 +3,16 @@ include_once "ConnectionFactory_class.php";
 include_once "Mesa_class.php";
 
 class MesaDAO {
+    public $con = null;
+    
+    public function __construct(){
+        $conF = new ConnectionFactory();
+        $this->con = $conF->getConnection();
+    }
 
     public function cadastrar(Mesa $mesa){
         try{
-            $fabrica = new ConnectionFactory();
-            $con = $fabrica->getConnection();
-            
-            $stmt = $con->prepare("INSERT INTO mesas (numero, capacidade, localizacao, status, descricao) VALUES (:numero, :capacidade, :localizacao, :status, :descricao)");
+            $stmt = $this->con->prepare("INSERT INTO mesas (numero, capacidade, localizacao, status, descricao) VALUES (:numero, :capacidade, :localizacao, :status, :descricao)");
 
             $stmt->bindValue(':numero', $mesa->getNumero());
             $stmt->bindValue(':capacidade', $mesa->getCapacidade());
@@ -18,7 +21,6 @@ class MesaDAO {
             $stmt->bindValue(':descricao', $mesa->getDescricao());
             
             $stmt->execute();
-            $fabrica->close();
         } catch (PDOException $ex){
             echo "Erro ao cadastrar mesa: " . $ex->getMessage();
         }
@@ -26,14 +28,10 @@ class MesaDAO {
 
     public function listar(){
         try{
-            $fabrica = new ConnectionFactory();
-            $con = $fabrica->getConnection();
-            
-            $stmt = $con->prepare("SELECT * FROM mesas");
+            $stmt = $this->con->prepare("SELECT * FROM mesas");
             $stmt->execute();
             
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $fabrica->close();
             return $result;
         } catch (PDOException $ex){
             echo "Erro ao listar mesas: " . $ex->getMessage();
@@ -42,10 +40,7 @@ class MesaDAO {
 
     public function alterar(Mesa $mesa) {
         try {
-            $fabrica = new ConnectionFactory();
-            $con = $fabrica->getConnection();
-            
-            $stmt = $con->prepare("UPDATE mesas SET numero = :numero, capacidade = :capacidade, localizacao = :localizacao, status = :status, descricao = :descricao WHERE id_mesa = :id_mesa");
+            $stmt = $this->con->prepare("UPDATE mesas SET numero = :numero, capacidade = :capacidade, localizacao = :localizacao, status = :status, descricao = :descricao WHERE id_mesa = :id_mesa");
             
             $stmt->bindValue(':numero', $mesa->getNumero());
             $stmt->bindValue(':capacidade', $mesa->getCapacidade());
@@ -55,7 +50,6 @@ class MesaDAO {
             $stmt->bindValue(':id_mesa', $mesa->getIdMesa());
             
             $stmt->execute();
-            $fabrica->close();
         } catch (PDOException $ex) {
             echo "Erro ao alterar mesa: " . $ex->getMessage();
         }
@@ -63,15 +57,11 @@ class MesaDAO {
 
     public function excluir(Mesa $mesa) {
         try {
-            $fabrica = new ConnectionFactory();
-            $con = $fabrica->getConnection();
-            
-            $stmt = $con->prepare("DELETE FROM mesas WHERE id_mesa = :id_mesa");
+            $stmt = $this->con->prepare("DELETE FROM mesas WHERE id_mesa = :id_mesa");
             
             $stmt->bindValue(':id_mesa', $mesa->getIdMesa());
             
             $stmt->execute();
-            $fabrica->close();
         } catch (PDOException $ex) {
             echo "Erro ao excluir mesa: " . $ex->getMessage();
         }
@@ -79,15 +69,11 @@ class MesaDAO {
 
     public function exibir($id) {
         try {
-            $fabrica = new ConnectionFactory();
-            $con = $fabrica->getConnection();
-            
-            $stmt = $con->prepare("SELECT * FROM mesas WHERE id_mesa = :id");
+            $stmt = $this->con->prepare("SELECT * FROM mesas WHERE id_mesa = :id");
             $stmt->bindValue(':id', $id);
             $stmt->execute();
             
             $dado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $fabrica->close();
             
             $m = new Mesa();
             $m->setIdMesa($dado[0]["id_mesa"]);
@@ -101,6 +87,10 @@ class MesaDAO {
         } catch (PDOException $ex) {
             echo "Erro ao exibir mesa: " . $ex->getMessage();
         }
+    }
+    
+    public function __destruct(){
+        $this->con = null;
     }
 }
 ?>
