@@ -114,38 +114,6 @@ class UsuarioDAO{
 		}
 	}
 	
-	public function cadastrar(Usuario $u){
-		try{
-			$stmt = $this->con->prepare(
-				"INSERT INTO usuarios (nome, email, senha, tipo) 
-				VALUES (:nome, :email, :senha, :tipo)"
-			);
-			
-			$stmt->bindValue(":nome", $u->getNome());
-			$stmt->bindValue(":email", $u->getEmail());
-			$stmt->bindValue(":senha", md5($u->getSenha()));
-			$stmt->bindValue(":tipo", $u->getTipo());
-			
-			$stmt->execute();
-			
-		} catch(PDOException $ex){
-			echo "Erro ao cadastrar usuário: " . $ex->getMessage();
-		}
-	}
-	
-	public function listar(){
-		try{
-			$stmt = $this->con->prepare("SELECT * FROM usuarios");
-			$stmt->execute();
-			
-			$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-			return $resultado;
-			
-		} catch(PDOException $ex){
-			echo "Erro ao listar usuários: " . $ex->getMessage();
-		}
-	}
-	
 	public function emailExiste($email){
 		try{
 			$stmt = $this->con->prepare("SELECT COUNT(*) as total FROM usuarios WHERE email = :email");
