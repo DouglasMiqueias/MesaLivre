@@ -1,0 +1,55 @@
+Modificações realizadas nos arquivos DAO:
+
+O que foi alterado: Padronizamos todos os DAOs (UsuarioDAO, ClienteDAO, CategoriaDAO, MesaDAO, ProdutoDAO, ReservaDAO) para usar o mesmo padrão de gerenciamento de conexão.
+
+Como funciona o novo padrão:
+
+Antes (padrão antigo - conexão por método):
+
+
+
+php
+public function cadastrar(Cliente $cli) {
+    $fabrica = new ConnectionFactory();
+    $con = $fabrica->getConnection();
+    // ... executa operação
+    $fabrica->close();
+}
+Cada método criava e fechava sua própria conexão.
+
+Depois (padrão novo - conexão no construtor):
+
+
+
+php
+class ClienteDAO {
+    public $con = null;
+    
+    public function __construct(){
+        $conF = new ConnectionFactory();
+        $this->con = $conF->getConnection();
+    }
+    
+    public function cadastrar(Cliente $cli) {
+        $stmt = $this->con->prepare(...);
+        // ... executa operação
+    }
+    
+    public function __destruct(){
+        $this->con = null;
+    }
+}
+A conexão é criada uma vez ao instanciar o DAO e reutilizada em todos os métodos.
+
+Vantagens do novo padrão:
+
+Performance: Uma conexão é estabelecida e reutilizada, reduzindo overhead de criar/fechar conexões repetidamente
+Eficiência: Ideal para cenários onde múltiplos métodos são chamados na mesma instância do DAO
+Padrão DAO tradicional: Segue a prática comum em frameworks e projetos PHP
+Código mais limpo: Remove código repetitivo de criação/fechamento de conexão em cada método
+Gerenciamento automático: O __destruct() garante que a conexão seja limpa quando o objeto for destruído
+Quando usar:
+
+Quando você precisa chamar vários métodos do mesmo DAO em sequência
+Em operações que envolvem múltiplas interações com o banco
+Para melhorar performance em aplicações com muitas operações CRUD
