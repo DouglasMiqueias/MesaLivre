@@ -17,7 +17,7 @@
         <th>Data</th>
         <th>Hora Início</th>
         <th>Hora Fim</th>
-        <th>Número de Pessoas</th>
+        <th>N° Pessoas</th>
         <th>Status</th>
         <th>Observações</th>
         <th>Ações</th>

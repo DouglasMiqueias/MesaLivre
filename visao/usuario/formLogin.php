@@ -132,7 +132,6 @@
     </form>
     
     <div class="login-footer">
-        <p>Usuário padrão: <strong>iftm</strong></p>
         <p><a href="index.php">← Voltar para página inicial</a></p>
     </div>
 </div>
